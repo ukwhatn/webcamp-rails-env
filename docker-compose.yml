@@ -1,0 +1,9 @@
+version: "3"
+services:
+  web:
+    container_name: webcamp-rails-main
+    build: ./Dockerfiles/main
+    volumes:
+      - ./scripts:/remote/scripts
+    ports:
+      - 3000:3000
