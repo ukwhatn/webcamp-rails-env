@@ -11,7 +11,7 @@ RUN_IMAGE_NAME := $(REVIEW_IMAGE_NAME)_check
 CHECK_CONTAINER_NAME := $(RUN_IMAGE_NAME)_container
 
 build-base:
-	docker build ./base/ -t $(BASE_IMAGE_NAME):$(VER) --build-arg RUBY_VERSION=$(VER)
+	docker build ./layer/base/ -t $(BASE_IMAGE_NAME):$(VER) --build-arg RUBY_VERSION=$(VER)
 
 build-all-base:
 	make build-base VER=2.6.3
