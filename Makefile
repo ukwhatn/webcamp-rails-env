@@ -5,9 +5,6 @@ include .env
 APP_DIR ?= ""
 BRANCH ?= main
 
-# port
-PORT ?= 3901
-
 # image names
 BASE_IMAGE_NAME := webcamp_rails_env
 REVIEW_IMAGE_NAME := webcamp_review_temp
@@ -58,7 +55,7 @@ spec:
 
 open:
 	docker exec $(CHECK_CONTAINER_NAME) rails s -d -b "0.0.0.0"
-	open -a "Google Chrome" http://127.0.0.1:3901
+	open -a "Google Chrome" http://127.0.0.1:$(PORT)
 	docker exec $(CHECK_CONTAINER_NAME) tail -f log/development.log
 
 check-bookers:
