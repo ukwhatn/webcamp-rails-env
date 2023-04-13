@@ -5,6 +5,9 @@ include .env
 APP_DIR ?= ""
 BRANCH ?= main
 
+# port
+PORT ?= 3901
+
 # image names
 BASE_IMAGE_NAME := webcamp_rails_env
 REVIEW_IMAGE_NAME := webcamp_review_temp
@@ -48,7 +51,7 @@ build-https:
 		--build-arg GIT_BRANCH=$(BRANCH)
 
 run:
-	docker run -p 127.0.0.1:3901:3000 -d --name $(CHECK_CONTAINER_NAME) -it $(REVIEW_IMAGE_NAME)
+	docker run -p 127.0.0.1:$(PORT):3000 -d --name $(CHECK_CONTAINER_NAME) -it $(REVIEW_IMAGE_NAME)
 
 spec:
 	docker exec $(CHECK_CONTAINER_NAME) bundle exec rspec spec/ --format documentation
