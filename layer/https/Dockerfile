@@ -1,20 +1,27 @@
 ARG RUBY_VERSION
-ARG GITHUB_USER
-ARG GITHUB_PASSWORD
-ARG GITHUB_REPO
-ARG GIT_BRANCH="main"
-ARG GIT_DIR=""
+ARG BASE_IMAGE_NAME
 
-FROM webcamp_rails_env:$RUBY_VERSION
+FROM $BASE_IMAGE_NAME:$RUBY_VERSION
+
+ARG REPO_HOST
+ARG REPO_USER
+ARG REPO_NAME
+ARG GIT_BRANCH
+ARG APP_DIR
 
 WORKDIR /environment
 
-RUN git clone https://$GITHUB_USER:$GITHUB_PASSWORD@$GITHUB_REPO /tmp/app && \
-    mv /tmp/app/$GIT_DIR/* /environment/app
+RUN git clone https://$REPO_HOST/$REPO_USER/$REPO_NAME.git /tmp/app
+
+WORKDIR /tmp/app
+
+RUN ls -la
+
+RUN git checkout $GIT_BRANCH
+RUN git pull
+RUN mv /tmp/app/$APP_DIR /environment/app
 
 WORKDIR /environment/app
-
-RUN git checkout $GIT_BRANCH && git pull
 
 RUN bundle install && \
     rails webpacker:install && \
@@ -22,9 +29,4 @@ RUN bundle install && \
     rails db:setup && \
     rails db:migrate && \
     rails db:migrate RAILS_ENV=test
-
-RUN bundle exec rspec spec/ --format documentation
-
-CMD ["rails", "s", "-b", "0.0.0.0"]
-
 
