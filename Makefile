@@ -24,7 +24,7 @@ build-noauth:
 	make build-base VER=$(VER)
 	docker build \
 		-t $(REVIEW_IMAGE_NAME) \
-		./layer/noauth/ \
+		./layer/https/ \
 		--build-arg BASE_IMAGE_NAME=$(BASE_IMAGE_NAME) \
 		--build-arg RUBY_VERSION=$(VER) \
 		--build-arg REPO_HOST=$(HOST) \
@@ -38,7 +38,7 @@ build-https:
 	make build-base VER=$(VER)
 	docker build \
 		-t $(REVIEW_IMAGE_NAME) \
-		./layer/noauth/ \
+		./layer/https/ \
 		--build-arg BASE_IMAGE_NAME=$(BASE_IMAGE_NAME) \
 		--build-arg RUBY_VERSION=$(VER) \
 		--build-arg REPO_HOST="$(GIT_USER):$(GIT_PASS)@$(HOST)" \

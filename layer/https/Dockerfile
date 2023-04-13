@@ -23,10 +23,15 @@ RUN mv /tmp/app/$APP_DIR /environment/app
 
 WORKDIR /environment/app
 
-RUN bundle install && \
-    rails webpacker:install && \
-    rails webpacker:compile && \
-    rails db:setup && \
-    rails db:migrate && \
-    rails db:migrate RAILS_ENV=test
+RUN bundle install
 
+RUN rails webpacker:install && \
+    rails webpacker:compile
+
+# setupだと何故かうまく動かないので、create, migrate, seedを分けて実行
+RUN rails db:create
+RUN rails db:migrate
+RUN rails db:seed
+
+RUN rails db:create RAILS_ENV=test && \
+    rails db:migrate RAILS_ENV=test
