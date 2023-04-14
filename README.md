@@ -73,6 +73,8 @@ make check-nc USER=<GITLAB_USER_NAME>
   * ソースはgitlabになっています
     * envにレビュー用Gitlabアカウントの情報をセットしておいてください
   * リポジトリ名の入力は不要です(`NaganoCake-Rails6`を自動的に利用)
+* リポジトリのRubyバージョンが3.1.2になっている場合は、`check-nc`の代わりに`check-nc-ruby3`を実行してください
+  * Gemfileで確認できます
 
 ## イレギュラーなケース
 * S2スキルアップ研修などのテンプレートが設定されている場合は、テンプレートのRubyバージョンに合わせて記載しています

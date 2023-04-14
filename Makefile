@@ -74,6 +74,11 @@ check-nc:
 	make run
 	make open
 
+check-nc-ruby3:
+	make build-https VER="3.1.2" HOST="gitlab.com" USER=$(USER) REPO="NaganoCake-Rails6" APP_DIR=$(APP_DIR) BRANCH=$(BRANCH)
+	make run
+	make open
+
 stop:
 	docker stop $(CHECK_CONTAINER_NAME)
 	docker rm $(CHECK_CONTAINER_NAME)
