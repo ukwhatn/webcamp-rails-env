@@ -65,17 +65,17 @@ check-bookers:
 	make open
 
 check-s2-bookers:
-	make build-https VER="2.6.3" HOST="gitlab.com" USER=$(USER) REPO="bookers2_phase2_debug_Rails6" APP_DIR=$(APP_DIR) BRANCH=$(BRANCH)
+	make build-https VER="2.6.3" HOST="github.com" USER=$(USER) REPO="bookers2_phase2_debug_Rails6" APP_DIR=$(APP_DIR) BRANCH=$(BRANCH)
 	make run
 	make open
 
 check-nc:
-	make build-https VER="2.6.3" HOST="gitlab.com" USER=$(USER) REPO="NaganoCake-Rails6" APP_DIR=$(APP_DIR) BRANCH=$(BRANCH)
+	make build-https VER="2.6.3" HOST="github.com" USER=$(USER) REPO="naganoCake-rails6" APP_DIR=$(APP_DIR) BRANCH=$(BRANCH)
 	make run
 	make open
 
 check-nc-ruby3:
-	make build-https VER="3.1.2" HOST="gitlab.com" USER=$(USER) REPO="NaganoCake-Rails6" APP_DIR=$(APP_DIR) BRANCH=$(BRANCH)
+	make build-https VER="3.1.2" HOST="github.com" USER=$(USER) REPO="naganoCake-rails6" APP_DIR=$(APP_DIR) BRANCH=$(BRANCH)
 	make run
 	make open
 

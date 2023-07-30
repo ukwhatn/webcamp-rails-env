@@ -54,25 +54,25 @@ make check-bookers USER=ukwhatn REPO=dmm-webcamp APP_DIR="task2/bookers"
 
 #### Bookersデバッグ課題レビュー(S2スキルアップ研修)
 ```shell
-make check-s2-bookers USER=<GITLAB_USER_NAME>
+make check-s2-bookers USER=<GITHUB_USER_NAME>
 ```
 * 仕様
   * Ruby 2.6.3
   * rspecは実行されません
-  * gitlabをソースとしています
+  * githubをソースとしています
     * envにレビュー用Gitlabアカウントの情報をセットしておいてください
   * リポジトリ名の入力は不要です(`bookers2_phase2_debug_Rails6`を自動的に利用)
 
 ### 2ヶ月目レビュー
 #### NaganoCake(S2スキルアップ研修)
 ```shell
-make check-nc USER=<GITLAB_USER_NAME>
+make check-nc USER=<GITHUB_USER_NAME>
 ```
 * 仕様
   * Ruby 2.6.3
-  * ソースはgitlabになっています
+  * ソースはgithubになっています
     * envにレビュー用Gitlabアカウントの情報をセットしておいてください
-  * リポジトリ名の入力は不要です(`NaganoCake-Rails6`を自動的に利用)
+  * リポジトリ名の入力は不要です(`naganoCake-rails6`を自動的に利用)
 * リポジトリのRubyバージョンが3.1.2になっている場合は、`check-nc`の代わりに`check-nc-ruby3`を実行してください
   * Gemfileで確認できます
 
